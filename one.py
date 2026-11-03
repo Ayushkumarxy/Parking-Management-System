@@ -136,6 +136,24 @@ class ParkingLot:
         return "\n".join(lines)
 
 
+
+# Required problem-statement functions
+def entry(parking_lot, vehicle_number, vehicle_type):
+    return parking_lot.entry(vehicle_number, vehicle_type)
+
+
+def exit_vehicle(parking_lot, vehicle_number, hours):
+    return parking_lot.exit_vehicle(vehicle_number, hours)
+
+
+def calculate_fee(vehicle_type, hours):
+    return ParkingLot.calculate_fee(vehicle_type, hours)
+
+
+def status(parking_lot):
+    return parking_lot.status()
+
+
 def main():
     parking_lot = ParkingLot()
 
@@ -151,13 +169,13 @@ def main():
         if choice == "1":
             number = input("Enter vehicle number: ")
             vehicle_type = input("Enter vehicle type (car/bike): ")
-            print(parking_lot.entry(number, vehicle_type))
+            print(entry(parking_lot, number, vehicle_type))
         elif choice == "2":
             number = input("Enter vehicle number: ")
             hours = input("Enter parking hours: ")
-            print(parking_lot.exit_vehicle(number, hours))
+            print(exit_vehicle(parking_lot, number, hours))
         elif choice == "3":
-            print(parking_lot.status())
+            print(status(parking_lot))
         elif choice == "4":
             print("Thank you for using the Parking Management System.")
             break
